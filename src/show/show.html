@@ -1,0 +1,18 @@
+<npdc:edit-button class="np-primary-control"></npdc:edit-button>
+<div class="np-padding">
+
+  <div class="layout-padding" layout="row">
+    <div flex="50">
+      <md-icon>mail</md-icon>&nbsp;<b>Mail:&nbsp;</b><em>{{document.email}}</em><br/>
+      <md-icon>phone</md-icon>&nbsp;<b>Phone:&nbsp;</b><em>{{document.phone}}</em><br/>
+      <md-icon>class</md-icon>&nbsp;<b>Title:&nbsp;</b><em>{{document.jobtitle.en}}</em><br/>
+      <md-icon>place</md-icon>&nbsp;<b>Workplace:&nbsp;</b><em>{{document.workplace}}</em><br/>
+      <md-icon>flight_takeoff</md-icon>&nbsp;<b>On Leave:&nbsp;</b><em>{{document.on_leave}}</em><br/>
+      <md-icon>verified_user</md-icon>&nbsp;<b>Currently Employed:&nbsp;</b><em>{{document.currently_employed}}</em><br/>
+    </div>
+    <div flex="50" style="text-align: center;">
+      <img src="{{ image(document.links) }}" width="150px"/>
+    </div>
+  </div>
+
+</div>
