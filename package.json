@@ -1,5 +1,5 @@
 {
-  "name": "npdc-expedition",
+  "name": "npdc-people",
   "version": "0.0.1",
   "description": "",
   "main": "gulpfile.js",
@@ -9,7 +9,7 @@
   "author": "npolar",
   "license": "MIT",
   "private": true,
-  "repository": "https://github.com/npolar/npdc-expedition",
+  "repository": "https://github.com/npolar/npdc-people",
   "dependencies": {
     "angular": "1.4.5",
     "angular-npolar": "npolar/angular-npolar",
