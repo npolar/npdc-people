@@ -13,7 +13,7 @@ var PeopleSearchController = function ($scope, $location, $controller, People, n
     }
   };
 
-  let defaults = { limit: "50", sort: "-updated", fields: 'title,id,updated,jobtitle.en', facets: ' ' };
+  let defaults = { limit: "50", sort: "-updated", fields: 'title,id,updated,jobtitle.en', facets: 'workplace,orgtree' };
   let invariants = $scope.security.isAuthenticated() ? {} : {} ;
   let query = Object.assign({}, defaults, invariants);
 
