@@ -4,11 +4,8 @@ var npdcCommon = require('npdc-common');
 var AutoConfig = npdcCommon.AutoConfig;
 
 var angular = require('angular');
-require('formula');
-require('angular-route');
-require('angular-npolar');
 
-var npdcPeopleApp = angular.module('npdcPeopleApp', ['ngRoute', 'formula', 'npolarApi', 'npolarUi', 'npdcUi', 'templates']);
+var npdcPeopleApp = angular.module('npdcPeopleApp', ['npdcUi']);
 
 npdcPeopleApp.controller('PeopleShowController', require('./show/PeopleShowController'));
 npdcPeopleApp.controller('PeopleSearchController', require('./search/PeopleSearchController'));
