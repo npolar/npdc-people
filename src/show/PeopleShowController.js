@@ -3,11 +3,10 @@ let angular = require("angular");
 
 // @ngInject
 
-var PeopleShowController = function ($scope, $controller, $routeParams, People, NpolarApiSecurity, npdcAppConfig) {
+var PeopleShowController = function ($scope, $controller, People, npdcAppConfig) {
 
   $controller('NpolarBaseController', {$scope: $scope});
   $scope.resource = People;
-  $scope.security = NpolarApiSecurity;
   $scope.show();
 
   $scope.show().$promise.then(data => {

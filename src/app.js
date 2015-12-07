@@ -5,7 +5,7 @@ var AutoConfig = npdcCommon.AutoConfig;
 
 var angular = require('angular');
 
-var npdcPeopleApp = angular.module('npdcPeopleApp', ['npdcUi']);
+var npdcPeopleApp = angular.module('npdcPeopleApp', ['npdcCommon']);
 
 npdcPeopleApp.controller('PeopleShowController', require('./show/PeopleShowController'));
 npdcPeopleApp.controller('PeopleSearchController', require('./search/PeopleSearchController'));
