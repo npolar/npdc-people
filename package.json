@@ -1,6 +1,6 @@
 {
-  "name": "npdc-people",
-  "version": "1.0.1",
+  "name": "npdc-person",
+  "version": "0.10.0",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "npolar",
   "license": "MIT",
   "private": true,
-  "repository": "https://github.com/npolar/npdc-people",
+  "repository": "https://github.com/npolar/npdc-person",
   "dependencies": {
     "angular": "1.4.7",
     "npdc-common": "npolar/npdc-common"
