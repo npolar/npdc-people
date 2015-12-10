@@ -8,13 +8,13 @@ var router = function ($routeProvider, $locationProvider) {
 
   $routeProvider.when('/:id', {
     templateUrl: 'show/show.html',
-    controller: 'PeopleShowController'
+    controller: 'PersonShowController'
   }).when('/:id/edit', {
     template: '<npdc:formula></npdc:formula>',
-    controller: 'PeopleEditController'
+    controller: 'PersonEditController'
   }).when('/', {
     template: '<npdc:search-input feed="feed"></npdc:search-input><npdc:search feed="feed"></npdc:search>',
-    controller: 'PeopleSearchController',
+    controller: 'PersonSearchController',
     reloadOnSearch: false
   });
 };

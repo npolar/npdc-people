@@ -1,0 +1,49 @@
+{
+  "fieldsets": [
+    {
+      "title": "Person",
+      "fields": [
+        "first_name",
+        "last_name",
+        "id"
+      ]
+    },
+    {
+      "title": "Contact",
+      "fields": [
+        "email",
+        "phone",
+        "mobile"
+      ]
+    },
+    {
+      "title": "Organisation",
+      "fields": [
+        "organisation",
+        "workplace",
+        "orgtree",
+        "jobtitle"
+      ]
+    },
+    {
+      "title": "Events",
+      "fields": [
+        "currently_employed",
+        "on_leave",
+        "events"
+      ]
+    },
+    {
+      "title": "Metadata",
+      "fields": [
+        "uuid",
+        "collection",
+        "links",
+        "created",
+        "created_by",
+        "updated",
+        "updated_by"
+      ]
+    }
+  ]
+}

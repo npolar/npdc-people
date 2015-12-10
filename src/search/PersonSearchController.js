@@ -2,11 +2,11 @@
 
 // @ngInject
 
-var PeopleSearchController = function ($scope, $location, $controller, People, npdcAppConfig) {
+var PersonSearchController = function ($scope, $location, $controller, Person, npdcAppConfig) {
 
   $controller('NpolarBaseController', { $scope: $scope });
-  $scope.resource = People;
-  npdcAppConfig.cardTitle = "People";
+  $scope.resource = Person;
+  npdcAppConfig.cardTitle = "Person";
   npdcAppConfig.search.local = {
     results: {
       subtitle: "jobtitle/en"
@@ -28,5 +28,4 @@ var PeopleSearchController = function ($scope, $location, $controller, People, n
   });
 
 };
-
-module.exports = PeopleSearchController;
+module.exports = PersonSearchController;

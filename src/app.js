@@ -5,40 +5,40 @@ var AutoConfig = npdcCommon.AutoConfig;
 
 var angular = require('angular');
 
-var npdcPeopleApp = angular.module('npdcPeopleApp', ['npdcCommon']);
+var npdcPersonApp = angular.module('npdcPersonApp', ['npdcCommon']);
 
-npdcPeopleApp.controller('PeopleShowController', require('./show/PeopleShowController'));
-npdcPeopleApp.controller('PeopleSearchController', require('./search/PeopleSearchController'));
-npdcPeopleApp.controller('PeopleEditController', require('./edit/PeopleEditController'));
+npdcPersonApp.controller('PersonShowController', require('./show/PersonShowController'));
+npdcPersonApp.controller('PersonSearchController', require('./search/PersonSearchController'));
+npdcPersonApp.controller('PersonEditController', require('./edit/PersonEditController'));
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
-  {'path': '/person', 'resource': 'People'},
+  {'path': '/person', 'resource': 'Person'},
 ];
 
 resources.forEach(service => {
   // Expressive DI syntax is needed here
-  npdcPeopleApp.factory(service.resource, ['NpolarApiResource', function (NpolarApiResource) {
+  npdcPersonApp.factory(service.resource, ['NpolarApiResource', function (NpolarApiResource) {
     return NpolarApiResource.resource(service);
   }]);
 });
 
 // Routing
-npdcPeopleApp.config(require('./router'));
+npdcPersonApp.config(require('./router'));
 
 // API HTTP interceptor
-npdcPeopleApp.config($httpProvider => {
+npdcPersonApp.config($httpProvider => {
   $httpProvider.interceptors.push('npolarApiInterceptor');
 });
 
 // Inject npolarApiConfig and run
-npdcPeopleApp.run(function(npolarApiConfig, npdcAppConfig){
+npdcPersonApp.run(function(npolarApiConfig, npdcAppConfig){
   var environment = "production";
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 
   npdcAppConfig.cardTitle = '';
-  npdcAppConfig.toolbarTitle = 'People';
+  npdcAppConfig.toolbarTitle = 'Person';
 
   console.log("npolarApiConfig", npolarApiConfig);
 });
