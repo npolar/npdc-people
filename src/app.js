@@ -10,10 +10,11 @@ var npdcPersonApp = angular.module('npdcPersonApp', ['npdcCommon']);
 npdcPersonApp.controller('PersonShowController', require('./show/PersonShowController'));
 npdcPersonApp.controller('PersonSearchController', require('./search/PersonSearchController'));
 npdcPersonApp.controller('PersonEditController', require('./edit/PersonEditController'));
+npdcPersonApp.factory('Person', require('./model/Person.js'));
 
 // Bootstrap ngResource models using NpolarApiResource
 var resources = [
-  {'path': '/person', 'resource': 'Person'},
+  {'path': '/person', 'resource': 'PersonResource'},
 ];
 
 resources.forEach(service => {
@@ -22,6 +23,8 @@ resources.forEach(service => {
     return NpolarApiResource.resource(service);
   }]);
 });
+
+
 
 // Routing
 npdcPersonApp.config(require('./router'));

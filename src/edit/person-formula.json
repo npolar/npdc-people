@@ -5,7 +5,9 @@
       "fields": [
         "first_name",
         "last_name",
-        "id"
+        "id",
+        "currently_employed",
+        "on_leave"
       ]
     },
     {
@@ -20,30 +22,38 @@
       "title": "Organisation",
       "fields": [
         "organisation",
-        "workplace",
-        "orgtree",
+        { "id": "workplace", "enum": ["Tromsø",  "Troll", "Longyearbyen", "Ny-Ålesund" ]},
+        { "id": "orgtree" },
         "jobtitle"
       ]
     },
     {
       "title": "Events",
       "fields": [
-        "currently_employed",
-        "on_leave",
         "events"
+      ]
+    },
+    {
+      "title": "Links",
+      "fields": [
+        "links"
       ]
     },
     {
       "title": "Metadata",
       "fields": [
-        "uuid",
-        "collection",
-        "links",
-        "created",
-        "created_by",
-        "updated",
-        "updated_by"
+        { "id": "_id", "hidden": false, "disabled": true },
+        { "id": "_rev", "hidden": false, "disabled": true },
+        { "id": "uuid", "hidden": false, "disabled": true },
+        { "id": "schema", "hidden": false, "disabled": true, "default": "http://api.npolar.no/schema/person-1" },
+        { "id": "workspace", "hidden": false, "disabled": true },
+        { "id": "collection", "hidden": false, "disabled": true, "default": "person" },
+        { "id": "created", "hidden": false, "disabled": true },
+        { "id": "created_by", "hidden": false, "disabled": true },
+        { "id": "updated", "hidden": false, "disabled": true },
+        { "id": "updated_by", "hidden": false, "disabled": true }
       ]
-    }
+    } 
+    
   ]
 }
