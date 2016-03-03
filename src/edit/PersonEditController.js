@@ -3,18 +3,27 @@
 /**
  * @ngInject
  */
-var PersonEditController = function ($scope, $controller, $routeParams, npdcAppConfig, Person) {
+var PersonEditController = function ($scope, $controller, $routeParams,
+  formula, formulaAutoCompleteService,
+  npdcAppConfig, Person) {
 
   // EditController -> NpolarEditController
   $controller('NpolarEditController', { $scope: $scope });
 
-  // Expedition -> npolarApiResource -> ngResource
+  // Person -> PersonResource -> ngResource
   $scope.resource = Person;
 
-  // Formula ($scope.formula is set by parent)
-  $scope.formula.schema = '//api.npolar.no/schema/person-1';
-  $scope.formula.form = 'edit/person-formula.json';
-
+  // Formula
+  $scope.formula = formula.getInstance({
+    schema: '//api.npolar.no/schema/person-1',
+    form: 'edit/person-formula.json',
+    templates: npdcAppConfig.formula.templates,
+    languages: npdcAppConfig.formula.languages
+  });
+  
+  //let autocompleteFacets= ['first_name', 'last_name', 'workplace', 'jobtitle.en', 'jobtitle.no'];
+  //formulaAutoCompleteService.autocompleteFacets(autocompleteFacets);
+    
   // edit (or new) action
   let r = $scope.edit();
   
@@ -27,5 +36,3 @@ var PersonEditController = function ($scope, $controller, $routeParams, npdcAppC
 };
 
 module.exports = PersonEditController;
-
-//"enum": ["/ola/", "/ola/arktis/", "/ola/antarktis/", "/ola/support/"], "multiple": true
