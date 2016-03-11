@@ -6,7 +6,6 @@ var PersonSearchController = function ($scope, $location, $controller, NpolarLan
 
   $controller('NpolarBaseController', { $scope: $scope });
   $scope.resource = Person;
-  npdcAppConfig.cardTitle = "Person";
   
   let lang = NpolarLang.getLang();
   if (lang !== 'en') {
@@ -36,7 +35,7 @@ var PersonSearchController = function ($scope, $location, $controller, NpolarLan
     };
     let invariants = {};
     let query = Object.assign({}, defaults, $location.search(), invariants);
-    
+
     $scope.search(query);
   };
 

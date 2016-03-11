@@ -17,11 +17,11 @@ var PersonEditController = function ($scope, $controller, $routeParams, npdcAppC
 
   // edit (or new) action
   let r = $scope.edit();
-  
+
   if (r && r.$promise) {
     r.$promise.then(p => {
       let left_the_building = p.currently_employed ? '' : ' [former employee]';
-      npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
+      //npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
     });
   }
 };

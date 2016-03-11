@@ -40,7 +40,6 @@ npdcPersonApp.run(function(npolarApiConfig, npdcAppConfig){
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 
-  npdcAppConfig.cardTitle = '';
   npdcAppConfig.toolbarTitle = 'Person';
 
   console.log("npolarApiConfig", npolarApiConfig);
