@@ -20,7 +20,7 @@ var PersonShowController = function ($scope, $controller, Person, NpolarLang, np
   };
 
   $scope.show().$promise.then(p => {
-    let left_the_building = p.currently_employed ? '' : ' [former employee]';
+    //let left_the_building = p.currently_employed ? '' : ' [former employee]';
     //npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
   });
 

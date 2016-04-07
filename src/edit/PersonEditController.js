@@ -20,16 +20,16 @@ var PersonEditController = function ($scope, $controller, $routeParams,
     templates: npdcAppConfig.formula.templates,
     languages: npdcAppConfig.formula.languages
   });
-  
+
   //let autocompleteFacets= ['first_name', 'last_name', 'workplace', 'jobtitle.en', 'jobtitle.no'];
   //formulaAutoCompleteService.autocompleteFacets(autocompleteFacets);
-    
+
   // edit (or new) action
   let r = $scope.edit();
 
   if (r && r.$promise) {
     r.$promise.then(p => {
-      let left_the_building = p.currently_employed ? '' : ' [former employee]';
+      //let left_the_building = p.currently_employed ? '' : ' [former employee]';
       //npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
     });
   }
