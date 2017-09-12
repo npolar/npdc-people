@@ -7,6 +7,17 @@ var PersonEditController = function ($scope, $controller, $routeParams,
   formula, formulaAutoCompleteService,
   npdcAppConfig, Person) {
 
+  Person.create = () => {
+    const d = new Date();
+    const m = (d.getMonth()+1 >= 10) ? d.getMonth()+1 : `0${d.getMonth()+1}`;
+    const hired = `${d.getFullYear()}-${m}-01`;
+    return  {
+      workplace: "Tromsø",
+      organisation: "npolar.no",
+      hired
+    };
+  };
+
   // EditController -> NpolarEditController
   $controller('NpolarEditController', { $scope: $scope });
 

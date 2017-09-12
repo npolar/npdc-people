@@ -1,8 +1,8 @@
 <npdc:edit-button class="np-primary-control"></npdc:edit-button>
-<article class="np-padding" ng-if="document">
+<article class="np-padding" ng-if="document" ng-controller="PersonShowController as ctrl">
 <h1>{{ name(document) }}</h1>
 
-<img src="{{ image(document.links) }}"/>  
+<img src="{{ image(document.links) }}"/>
 
 <span ng-if="document.on_leave">
   <md-icon>flight_takeoff</md-icon>
@@ -10,49 +10,55 @@
 </span>
 
   <div class="layout-padding">
-    
+
     <table>
-      
+
       <tr>
         <th><md-icon>place</md-icon><b>Workplace</th>
         <td>{{document.workplace}}</td>
       </tr>
-       
+
+      <tr>
+        <th>Units</th>
+        <td>{{ document.orgtree }}</td>
+      </tr>
+
       <tr>
         <th>English title</th>
         <td>{{document.jobtitle.en}}</td>
       </tr>
-      
+
       <tr>
         <th>Tittel</th>
         <td>{{ document.jobtitle.no || document.jobtitle.nb || document.jobtitle.nn }}</td>
       </tr>
 
-        <tr ng-if="isEmployed(document)">
-          <th><md-icon>mail</md-icon> {{ 'Mail'|t }} </th>
+        <tr ng-if="ctrl.isEmployed(document)">
+          <th><md-icon>mail</md-icon> {{ 'Email'|t }} </th>
           <td>{{document.email.split('@').join('*')}}</td>
         </tr>
-      
-        <tr ng-if="isEmployed(document)">
+
+        <tr ng-if="ctrl.isEmployed(document)">
           <th><md-icon>phone</md-icon>{{ 'Phone'|t }}</th>
           <td>{{document.phone}}</td>
         </tr>
-        
+
+        <tr>
+          <th>Hired</th>
+          <td>{{ document.hired }}</td>
+        </tr>
+
+        <tr ng-show=!ctrl.isEmployed(document)>
+          <th>Left</th>
+          <td>{{ document.left }}</td>
+        </tr>
+
     </table>
-    
-    <h3>Events</h3>
-    <table>
-      <tr ng-repeat="event in document.events">
-        <th>{{ event.date.split('T')[0] }}</th>
-        <td>{{ event.type }}</td>
-      </tr>
-    </table>
-    
-    <div flex style="text-align: right;">
-       <npdc:document-meta></npdc:document-meta>
-    </div>
-    
-    
+
+
+
   </div>
+
+  <npdc:metadata document="document" resource="resource"></npdc:metadata>
 
 </article>

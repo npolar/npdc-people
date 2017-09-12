@@ -3,9 +3,11 @@
     {
       "title": "Person",
       "fields": [
+        "id",
         "first_name",
         "last_name",
-        "id",
+        "hired",
+        "left",
         "currently_employed",
         "on_leave"
       ]
@@ -26,34 +28,6 @@
         { "id": "orgtree" },
         "jobtitle"
       ]
-    },
-    {
-      "title": "Events",
-      "fields": [
-        "events"
-      ]
-    },
-    {
-      "title": "Links",
-      "fields": [
-        "links"
-      ]
-    },
-    {
-      "title": "Metadata",
-      "fields": [
-        { "id": "_id", "hidden": false, "disabled": true },
-        { "id": "_rev", "hidden": false, "disabled": true },
-        { "id": "uuid", "hidden": false, "disabled": true },
-        { "id": "schema", "hidden": false, "disabled": true, "default": "http://api.npolar.no/schema/person-1" },
-        { "id": "workspace", "hidden": false, "disabled": true },
-        { "id": "collection", "hidden": false, "disabled": true, "default": "person" },
-        { "id": "created", "hidden": false, "disabled": true },
-        { "id": "created_by", "hidden": false, "disabled": true },
-        { "id": "updated", "hidden": false, "disabled": true },
-        { "id": "updated_by", "hidden": false, "disabled": true }
-      ]
-    } 
-    
+    }
   ]
 }

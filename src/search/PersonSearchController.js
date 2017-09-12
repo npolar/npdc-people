@@ -2,11 +2,13 @@
 
 // @ngInject
 
-var PersonSearchController = function ($scope, $location, $controller, NpolarLang, npdcAppConfig, Person) {
+var PersonSearchController = function ($scope, $location, $controller, NpolarApiSecurity, NpolarLang, npdcAppConfig, Person) {
+
+  let self = this;
 
   $controller('NpolarBaseController', { $scope: $scope });
   $scope.resource = Person;
-  
+
   let lang = NpolarLang.getLang();
   if (lang !== 'en') {
     lang = 'no';
@@ -18,20 +20,23 @@ var PersonSearchController = function ($scope, $location, $controller, NpolarLan
       title:  (p) => { if (p && p.first_name !== undefined) { return Person.fn(p); }},
       subtitle: (p) => { if (p && p.orgtree !== undefined) { return p.orgtree.join(''); }},
       detail: (p) => { if (p && p.currently_employed !== undefined) {
-          let former_text = (p.currently_employed) ? '' : 'Former ';
+
           let jobtitle = (p.jobtitle[lang]) ? p.jobtitle[lang] : 'employee' ;
-          return former_text + jobtitle;
+          if (p.left) {
+            jobtitle += ` [until ${p.left}]`;
+          }
+          return jobtitle;
         }
       },
       avatar: (p) => { if (p && p.first_name !== undefined) { return Person.initials(p); }}
     }
   };
 
-  let search = function () {
+  self.search = function () {
     let defaults = { limit: "50",
-      sort: "-updated",
+      sort: "-hired",
       //fields: 'first_name,last_name,id,updated,jobtitle,orgtree,workplace',
-      facets: 'workplace,orgtree,currently_employed,jobtitle.en'
+      facets: 'workplace,orgtree,currently_employed'
     };
     let invariants = {};
     let query = Object.assign({}, defaults, $location.search(), invariants);
@@ -39,10 +44,10 @@ var PersonSearchController = function ($scope, $location, $controller, NpolarLan
     $scope.search(query);
   };
 
-  search();
+  self.search();
 
   $scope.$on('$locationChangeSuccess', (event, data) => {
-    search();
+    self.search();
   });
 
 };

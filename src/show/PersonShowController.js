@@ -6,6 +6,14 @@ let angular = require("angular");
 var PersonShowController = function ($scope, $controller, Person, NpolarLang, npdcAppConfig) {
 
   $controller('NpolarBaseController', {$scope: $scope});
+
+  this.isEmployed = (p) => {
+    // today = ISODATE NOW
+    // (today > hired) && (today < left)
+    //not-left=1..${today}&not-hired=today..
+    return (p.currently_employed === true);
+  };
+
   $scope.resource = Person;
   $scope.show();
 
