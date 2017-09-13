@@ -14,13 +14,27 @@
     <table>
 
       <tr>
-        <th><md-icon>place</md-icon><b>Workplace</th>
-        <td>{{document.workplace}}</td>
+        <th><b>Workplace</th>
+        <td><a ng-href="?q=&filter-workplace={{ document.workplace }}">{{ document.workplace }}</a></td>
       </tr>
 
       <tr>
-        <th>Units</th>
-        <td>{{ document.orgtree }}</td>
+        <th>Department</th>
+        <td><a ng-href="?q=&filter-orgunit={{ document.orgunit[0] }}">{{ document.orgunit[0] }}</a></td>
+      </tr>
+
+      <tr>
+        <th>Section/subunit</th>
+        <td><a ng-href="?q=&filter-subunit={{ document.subunit[0] }}">{{ document.subunit[0] }}</a></td>
+      </tr>
+
+      <tr>
+        <th>Groups</th>
+        <td>
+          <span ng-repeat="g in document.group">
+            <a ng-href="?q=&filter-group={{ g }}">{{ g }}</a> | 
+          </span>
+        </td>
       </tr>
 
       <tr>
@@ -51,6 +65,11 @@
         <tr ng-show=!ctrl.isEmployed(document)>
           <th>Left</th>
           <td>{{ document.left }}</td>
+        </tr>
+
+        <tr>
+          <th>Comment</th>
+          <td>{{ document.comment  }}</td>
         </tr>
 
     </table>

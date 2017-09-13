@@ -35,7 +35,22 @@ npdcPersonApp.config($httpProvider => {
 });
 
 // Inject npolarApiConfig and run
-npdcPersonApp.run(function(npolarApiConfig, npdcAppConfig){
+npdcPersonApp.run(function(npolarApiConfig, npdcAppConfig, Person){
+
+  Person.isEmployed = (p) => {
+    const now = new Date();
+
+    if (p.left && now >= Date.parse(p.left)) {
+      // Left in the past?
+      return false;
+    } else if (p.hired && now <= Date.parse(p.hired)) {
+      // Hired in the future?
+      return false;
+    }
+    return true;
+  };
+
+
   var environment = "production";
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);

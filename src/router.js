@@ -10,7 +10,10 @@ var router = function ($routeProvider, $locationProvider) {
     templateUrl: 'show/show.html',
     controller: 'PersonShowController'
   }).when('/:id/edit', {
-    template: '<npdc:formula></npdc:formula>',
+    template: `<npdc:formula></npdc:formula>
+    <md-checkbox ng-model="is_employed" ng-disabled="true" aria-label="Employed?">
+      Employed now ?
+    </md-checkbox>`,
     controller: 'PersonEditController'
   }).when('/', {
     template: '<npdc:search-input feed="feed"></npdc:search-input><npdc:search feed="feed"></npdc:search>',

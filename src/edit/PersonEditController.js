@@ -26,22 +26,22 @@ var PersonEditController = function ($scope, $controller, $routeParams,
 
   // Formula
   $scope.formula = formula.getInstance({
+    //schema: 'edit/person-1.json',
     schema: '//api.npolar.no/schema/person-1',
     form: 'edit/person-formula.json',
     templates: npdcAppConfig.formula.templates,
     languages: npdcAppConfig.formula.languages
   });
 
-  //let autocompleteFacets= ['first_name', 'last_name', 'workplace', 'jobtitle.en', 'jobtitle.no'];
-  //formulaAutoCompleteService.autocompleteFacets(autocompleteFacets);
+  const autocompleteFacets= ['first_name', 'last_name', 'workplace', 'organisation', 'jobtitle.en', 'jobtitle.no'];
+  formulaAutoCompleteService.autocompleteFacets(autocompleteFacets, $scope.resource, $scope.formula);
 
   // edit (or new) action
   let r = $scope.edit();
 
   if (r && r.$promise) {
     r.$promise.then(p => {
-      //let left_the_building = p.currently_employed ? '' : ' [former employee]';
-      //npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
+      $scope.is_employed = Person.isEmployed(p);
     });
   }
 };

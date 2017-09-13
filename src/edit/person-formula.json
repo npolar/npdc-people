@@ -4,29 +4,40 @@
       "title": "Person",
       "fields": [
         "id",
+        "email",
         "first_name",
-        "last_name",
+        "last_name"
+      ]
+    },
+    {
+      "title": "Hired/Left",
+      "fields": [
         "hired",
         "left",
-        "currently_employed",
         "on_leave"
       ]
     },
     {
-      "title": "Contact",
+      "title": "Position",
       "fields": [
-        "email",
-        "phone",
-        "mobile"
+        "jobtitle", "comment"
       ]
     },
     {
-      "title": "Organisation",
+      "title": "Units",
       "fields": [
         "organisation",
         { "id": "workplace", "enum": ["Tromsø",  "Troll", "Longyearbyen", "Ny-Ålesund" ]},
-        { "id": "orgtree" },
-        "jobtitle"
+          "orgunit",
+          "subunit",
+          "group"
+      ]
+    },
+    {
+      "title": "Phone",
+      "fields": [
+        "phone",
+        "mobile"
       ]
     }
   ]

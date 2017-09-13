@@ -5,13 +5,12 @@ let angular = require("angular");
 
 var PersonShowController = function ($scope, $controller, Person, NpolarLang, npdcAppConfig) {
 
+  let self = this;
+
   $controller('NpolarBaseController', {$scope: $scope});
 
   this.isEmployed = (p) => {
-    // today = ISODATE NOW
-    // (today > hired) && (today < left)
-    //not-left=1..${today}&not-hired=today..
-    return (p.currently_employed === true);
+    return Person.isEmployed(p);
   };
 
   $scope.resource = Person;
@@ -24,12 +23,10 @@ var PersonShowController = function ($scope, $controller, Person, NpolarLang, np
   };
 
   $scope.isEmployed = function(p) {
-    return (p.currently_employed !== false);
+    return self.isEmployed(p);
   };
 
   $scope.show().$promise.then(p => {
-    //let left_the_building = p.currently_employed ? '' : ' [former employee]';
-    //npdcAppConfig.cardTitle = `${p.first_name} ${p.last_name}${left_the_building}` ;
   });
 
   $scope.image = (links) => {
