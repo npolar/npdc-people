@@ -52,6 +52,7 @@ npdcPersonApp.run(function(npolarApiConfig, npdcAppConfig, Person){
 
 
   var environment = "production";
+	
   var autoconfig = new AutoConfig(environment);
   angular.extend(npolarApiConfig, autoconfig);
 
